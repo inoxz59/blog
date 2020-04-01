@@ -42,9 +42,9 @@ require_once('require/config.php');
             <div class="fh5co_suceefh5co_height"><img src="<?php echo $donnees['img']; ?>" alt="img"/>
                 <div class="fh5co_suceefh5co_height_position_absolute"></div>
                 <div class="fh5co_suceefh5co_height_position_absolute_font">
-                    <div class=""><a href="#" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;<?php echo $donnees['date']; ?>
+                    <div class=""><a href="article.php?id=<?php echo $donnees['id']; ?>" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;<?php echo $donnees['date']; ?>
                     </a></div>
-                    <div class=""><a href="single.html" class="fh5co_good_font"> <?php echo $donnees['title']; ?> </a></div>
+                    <div class=""><a href="article.php?id=<?php echo $donnees['id']; ?>" class="fh5co_good_font"> <?php echo $donnees['title']; ?> </a></div>
                 </div>
             </div>
         </div>
@@ -64,7 +64,7 @@ require_once('require/config.php');
                         <div class="fh5co_suceefh5co_height_position_absolute"></div>
                         <div class="fh5co_suceefh5co_height_position_absolute_font_2">
                             <div class=""><a href="#" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;<?php echo $donnees['date']; ?>  </a></div>
-                            <div class=""><a href="single.html" class="fh5co_good_font_2"> <?php echo $donnees['title']; ?>  </a></div>
+                            <div class=""><a href="article.php?id=<?php echo $donnees['id']; ?>" class="fh5co_good_font_2"> <?php echo $donnees['title']; ?>  </a></div>
                         </div>
                     </div>
                 </div>
@@ -187,7 +187,7 @@ require_once('require/config.php');
                     </div>
                 </div>
             </div>
-          
+
         <div class="row mx-0 animate-box" data-animate-effect="fadeInUp">
             <div class="col-12 text-center pb-4 pt-4">
                 <a href="#" class="btn_mange_pagging"><i class="fa fa-long-arrow-left"></i>&nbsp;&nbsp; Previous</a>
