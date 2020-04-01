@@ -46,25 +46,31 @@ session_start();
     <div class="container">
         <div class="col-12 text-center contact_margin_svnit ">
 
-            <div class="text-center fh5co_heading py-2">Se connecter</div>
+            <div class=" fh5co_heading py-2">Se connecter</div>
         </div>
         <form action="sign_in_procress.php" method="POST">
-                    <h1>Connexion</h1>
+                    <!-- <h1>Connexion</h1> -->
+                    <div class="row">
+                      <div class="col-6 col-offset-3">
 
-                    <label><b>Nom d'utilisateur</b></label>
-                    <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
+                                            <label><b>Nom d'utilisateur</b></label>
+                                            <input type="text" class="form-control fh5co_contact_text_box"  placeholder="Entrer le nom d'utilisateur" name="username" required>
 
-                    <label><b>Mot de passe</b></label>
-                    <input type="password" placeholder="Entrer le mot de passe" name="password" required>
+                                            <label><b>Mot de passe</b></label>
+                                            <input type="password"class="form-control fh5co_contact_text_box"   placeholder="Entrer le mot de passe" name="password" required>
+<br>
+                                            <input type="submit"  class="btn contact_btn"  id='submit' value='Se connecter' >
+                                            <?php
+                                            if(isset($_GET['erreur'])){
+                                                $err = $_GET['erreur'];
+                                                if($err==1 || $err==2)
+                                                    echo "<p style='color:red'>Utilisateur ou mot de passe incorrect</p>";
+                                            }
+                                            ?>
+                      </div>
 
-                    <input type="submit" id='submit' value='LOGIN' >
-                    <?php
-                    if(isset($_GET['erreur'])){
-                        $err = $_GET['erreur'];
-                        if($err==1 || $err==2)
-                            echo "<p style='color:red'>Utilisateur ou mot de passe incorrect</p>";
-                    }
-                    ?>
+                    </div>
+
                 </form>
 
 

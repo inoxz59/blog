@@ -4,9 +4,9 @@
             <div class="col-12 fh5co_mediya_center"><a href="#" class="color_fff fh5co_mediya_setting"><i
                     class="fa fa-clock-o"></i>&nbsp;&nbsp;&nbsp;Salut </a>
                 <div class="d-inline-block fh5co_trading_posotion_relative"><a href="#" class="treding_btn">  <?php
+                             if(isset($_SESSION['id'])) {
 
-                             if(isset($_SESSION['username'])) {
-                               echo $_SESSION['username'];
+                               echo $_SESSION['id'];
                              }
                               ?></a>
                     <div class="fh5co_treding_position_absolute"></div>
@@ -49,15 +49,26 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Accueil <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.php">Accueil <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="blog.html">Blog <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="blog.php">Blog <span class="sr-only">(current)</span></a>
                     </li>
+                    <?php   if (!isset($_SESSION['username'])) { ?>
                     <li class="nav-item ">
-                        <a class="nav-link" href="single.html">Single <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="sign_in.php">Connexion (Admin) <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item dropdown">
+                  <?php } ?>
+                    <?php
+                    if (isset($_SESSION['username'])) {
+
+
+                    ?>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="sign_in.php">Deconnexion (Admin) <span class="sr-only">(current)</span></a>
+                    </li>
+                    <?php } ?>
+                    <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton2" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">World <span class="sr-only">(current)</span></a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink_1">
@@ -65,16 +76,8 @@
                             <a class="dropdown-item" href="#">Another action</a>
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton3" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">Community<span class="sr-only">(current)</span></a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink_1">
-                            <a class="dropdown-item" href="#">Action in</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </li>
+                    </li> -->
+
                     <li class="nav-item ">
                         <a class="nav-link" href="Contact_us.html">Contact <span class="sr-only">(current)</span></a>
                     </li>

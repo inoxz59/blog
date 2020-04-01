@@ -28,25 +28,29 @@
 
 <?php
 include('include/header.php');
-require_once('functions.php'); ?>
+require_once('require/config.php'); ?>
 
 <div class="container-fluid pb-4 pt-4 paddding">
     <div class="container paddding">
         <div class="row mx-0">
-            <div class="col-md-8 animate-box" data-animate-effect="fadeInLeft">
+            <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
                 <div>
-                    <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">News</div>
+                    <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Tous les articles</div>
                 </div>
                 <?php
                 $list = $bdd->query("SELECT * FROM articles ORDER BY id DESC LIMIT 4");
                           ?>
 
-                <div class="row pb-4">
-                  <?php     while ($donnees = $list->fetch())
-                      {
-                      ?>
-                  <div class="col-12">
+                <div class="row pb-4 w100">
+
+                  <div class="col-9">
                     <div class="row">
+                      <?php     while ($donnees = $list->fetch())
+                          {
+                          ?>
+                          <div class="col-12 mb-3">
+                              <div class="row">
+
 
                     <div class="col-md-5">
                         <div class="fh5co_hover_news_img">
@@ -55,19 +59,25 @@ require_once('functions.php'); ?>
                         </div>
                     </div>
                     <div class="col-md-7 animate-box">
-                        <a href="single.html" class="fh5co_magna py-2"> . </a> <a href="#" class="fh5co_mini_time py-3"> Thomson Smith -
-                        April 18,2016 </a>
-                        <div class="fh5co_consectetur"> Amet consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+                        <a href="single.html" class="fh5co_magna py-2"> . </a> <a href="#" class="fh5co_mini_time py-3"> <?php echo htmlspecialchars($donnees['title']); ?> </a>
+                        <div class="fh5co_consectetur" style="width: 100%"><?php  if(strlen($donnees['content'])<=300)
+  {
+    echo htmlspecialchars($donnees['content']);
+  }
+  else
+  {
+    $y=substr($donnees['content'],0,300) . '...';
+    echo $y;
+  }
+  ?>
                         </div>
                     </div>
+                                                  </div>
+                        </div>    <?php } ?>
                 </div>
             </div>
-          </div>
 
-          <? } ?>
-
-            <div class="col-md-3 animate-box" data-animate-effect="fadeInRight">
+            <div class="col-3 animate-box" data-animate-effect="fadeInRight">
                 <div>
                     <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Tags</div>
                 </div>
@@ -125,7 +135,10 @@ require_once('functions.php'); ?>
                     </div>
                 </div>
             </div>
-        </div>
+          </div>
+
+
+
         <div class="row mx-0">
             <div class="col-12 text-center pb-4 pt-4">
                 <a href="#" class="btn_mange_pagging"><i class="fa fa-long-arrow-left"></i>&nbsp;&nbsp; Previous</a>

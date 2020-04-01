@@ -1,5 +1,13 @@
 <?php
-session_start();
-session_destroy(); // Puis on détruit la session
-header("location: sign_in.php" ) ; // On renvoie ensuite sur la page d'accueil
+
+  session_start();
+
+  $_SESSION = array();
+
+  if(isset($_COOKIE[session_name()])) {
+      setcookie(session_name(), '', time()-42000, '/');
+  }
+
+  session_destroy();
+header("location: index.php" ) ; // On renvoie ensuite sur la page d'accueil
  ?>

@@ -105,6 +105,7 @@ require_once('require/config.php');
         </div>
     </div>
 </div>
+</div>
 <div class="container-fluid pb-4 pt-4 paddding">
     <div class="container paddding">
         <div class="row mx-0">
@@ -186,28 +187,7 @@ require_once('require/config.php');
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 animate-box" data-animate-effect="fadeInRight">
-                <div>
-                    <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Bienvenue</div>
-                </div>
-                <div class="clearfix"></div>
-                <!-- <div class="fh5co_tags_all">
-                    <a href="#" class="fh5co_tagg">Business</a>
-                    <a href="#" class="fh5co_tagg">Technology</a>
-                    <a href="#" class="fh5co_tagg">Sport</a>
-                    <a href="#" class="fh5co_tagg">Art</a>
-                    <a href="#" class="fh5co_tagg">Lifestyle</a>
-                    <a href="#" class="fh5co_tagg">Three</a>
-                    <a href="#" class="fh5co_tagg">Photography</a>
-                    <a href="#" class="fh5co_tagg">Lifestyle</a>
-                    <a href="#" class="fh5co_tagg">Art</a>
-                    <a href="#" class="fh5co_tagg">Education</a>
-                    <a href="#" class="fh5co_tagg">Social</a>
-                    <a href="#" class="fh5co_tagg">Three</a>
-                </div> -->
-                <div>
-                </div>
-              </div>
+          
         <div class="row mx-0 animate-box" data-animate-effect="fadeInUp">
             <div class="col-12 text-center pb-4 pt-4">
                 <a href="#" class="btn_mange_pagging"><i class="fa fa-long-arrow-left"></i>&nbsp;&nbsp; Previous</a>
@@ -219,6 +199,7 @@ require_once('require/config.php');
              </div>
         </div>
     </div>
+</div>
 </div>
 <?php include('include/footer.php'); ?>
 
