@@ -38,7 +38,7 @@ require_once('require/config.php'); ?>
                     <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Tous les articles</div>
                 </div>
                 <?php
-                $list = $bdd->query("SELECT * FROM articles ORDER BY id DESC LIMIT 4");
+                $list = $bdd->query("SELECT * FROM articles ORDER BY id DESC");
                           ?>
 
                 <div class="row pb-4 w100">
@@ -54,12 +54,13 @@ require_once('require/config.php'); ?>
 
                     <div class="col-md-5">
                         <div class="fh5co_hover_news_img">
+                          <a href="article.php?id=<?php echo ($donnees['id']); ?>">
                             <div class="fh5co_news_img"><img src="<?php echo htmlspecialchars($donnees['img']); ?>" alt=""/></div>
-                            <div></div>
+                            </a>
                         </div>
                     </div>
                     <div class="col-md-7 animate-box">
-                        <a href="single.html" class="fh5co_magna py-2"> . </a> <a href="#" class="fh5co_mini_time py-3"> <?php echo htmlspecialchars($donnees['title']); ?> </a>
+                        <a href="article.php?id=<?php echo ($donnees['id']); ?>" class="fh5co_magna py-2"> </a> <a href="article.php?id=<?php echo ($donnees['id']); ?>" class="fh5co_mini_time py-3"> <?php echo htmlspecialchars($donnees['title']); ?> </a>
                         <div class="fh5co_consectetur" style="width: 100%"><?php  if(strlen($donnees['content'])<=300)
   {
     echo htmlspecialchars($donnees['content']);

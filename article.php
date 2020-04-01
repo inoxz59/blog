@@ -38,10 +38,10 @@ if (isset($_GET['id'])) {
          {
 
  ?>
-<div id="fh5co-title-box" style="background-image: url(<?php echo $donnees['img'] ?> ); background-position: 50% 90.5px;" data-stellar-background-ratio="0.5">
+<div id="fh5co-title-box" style="background-image: url(<?php echo $donnees['img'] ?> ); background-position:center;height: 350px; background-attachment: scroll;">
     <div class="overlay"></div>
     <div class="page-title">
-        <img src="images/person_1.jpg" alt="Free HTML5 by FreeHTMl5.co">
+        <!-- <img src="images/person_1.jpg" alt="Free HTML5 by FreeHTMl5.co"> -->
         <span><?php echo $donnees['date'] ?></span>
         <h2><?php echo $donnees['title'] ?></h2>
     </div>
