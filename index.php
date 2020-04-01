@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php session_start(); ?><!DOCTYPE html>
 <!--
 	24 News by FreeHTML5.co
 	Twitter: https://twitter.com/fh5co
@@ -26,8 +26,8 @@
 </head>
 <body>
 <?php include('include/header.php');
-require_once('functions.php');
-// session_start();
+require_once('require/config.php');
+
 ?>
 <div class="container-fluid paddding mb-5">
     <div class="row mx-0">
@@ -75,6 +75,9 @@ require_once('functions.php');
 </div>
 
 <div class="container-fluid pb-4 pt-5">
+</div>
+
+
     <?php
     $list = $bdd->query("SELECT * FROM articles ORDER BY id DESC LIMIT 4");
               ?>
@@ -107,7 +110,7 @@ require_once('functions.php');
         <div class="row mx-0">
             <div class="col-md-8 animate-box" data-animate-effect="fadeInLeft">
                 <div>
-                    <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Les plus consultés</div>
+                    <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Les plus consultés
                 </div>
                 <div class="row pb-4">
                     <div class="col-md-5">

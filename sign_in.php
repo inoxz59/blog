@@ -1,3 +1,10 @@
+<?php
+require_once('require/config.php');
+session_start();
+
+
+?>
+
 <!DOCTYPE html>
 <!--
 	24 News by FreeHTML5.co
@@ -25,9 +32,7 @@
     <script src="js/modernizr-3.5.0.min.js"></script>
 </head>
 <body>
-
-<?php require_once('functions.php');
-include('include/header.php'); ?>
+<?php include('include/header.php'); ?>
 <div class="container-fluid contact_us_bg_img">
     <div class="container">
         <div class="row">
@@ -36,55 +41,53 @@ include('include/header.php'); ?>
         </div>
     </div>
 </div>
-<?php if(isset($_POST['connectform'])) {
-$userconnect = htmlspecialchars($_POST['userconnect']);
-$mdpconnect = htmlspecialchars($_POST['mdpconnect']);
-if(!empty($userconnect) AND !empty($mdpconnect)) {
-  $requser = $bdd->prepare("SELECT * FROM users WHERE username = ?");
-  $requser->execute(array($userconnect));
-  $userexist = $requser->rowCount();
-  $user = $requser->fetch();
-  if ($userexist > 0 && password_verify($mdpconnect, $user['password'])) {
 
-        $_SESSION['id'] = $user['id'];
-        $_SESSION['username'] = $user['username'];
-        $_SESSION['mail'] = $user['mail'];
-        header("Location: index.php");
-        exit;
-  }
-  else
-  {
-    $erreur = "<p class='trouge mt-10'>Mauvaise adresse e-mail ou mot de passe</p>";
-  }
-}
-else {
-$erreur = '<p class="trouge mt-10"> Tous les champs doivent être complétés !</p>';
-}
-}
-
-?>
 <div class="container-fluid mb-4">
     <div class="container">
         <div class="col-12 text-center contact_margin_svnit ">
+
             <div class="text-center fh5co_heading py-2">Se connecter</div>
         </div>
-        <div class="row">
+        <form action="sign_in_procress.php" method="POST">
+                    <h1>Connexion</h1>
+
+                    <label><b>Nom d'utilisateur</b></label>
+                    <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
+
+                    <label><b>Mot de passe</b></label>
+                    <input type="password" placeholder="Entrer le mot de passe" name="password" required>
+
+                    <input type="submit" id='submit' value='LOGIN' >
+                    <?php
+                    if(isset($_GET['erreur'])){
+                        $err = $_GET['erreur'];
+                        if($err==1 || $err==2)
+                            echo "<p style='color:red'>Utilisateur ou mot de passe incorrect</p>";
+                    }
+                    ?>
+                </form>
+
+
+
+        <!-- <div class="row">
             <div class="col-12 col-md-6 offset-md-3">
-                <form class="row" id="fh5co_contact_form">
+                <form class="row" method="POST">
                     <div class="col-12 py-3">
-                        <input type="text" class="form-control fh5co_contact_text_box" placeholder="Votre pseudo" name="userconnect" />
+                        <input type="text" class="form-control fh5co_contact_text_box" placeholder="Votre pseudo" value="<?php// if (isset($userconnect)) {
+                          // echo $userconnect;
+                        } ?>" name="userconnect" />
                     </div>
                     <div class="col-12 py-3">
-                        <input type="password" class="form-control fh5co_contact_text_box" placeholder="Votre mot de passe" name="mdponnect" />
+                        <input type="password" class="form-control fh5co_contact_text_box" placeholder="Votre mot de passe" value="" name="mdpconnect"/>
                     </div>
 
 
                     <div class="col-12 py-3 text-center">
-                      <input type="submit" class="btn contact_btn"  value="Se connecter" name="connectform">
+                      <input type="submit" class="btn contact_btn"  value="Se connecter" name="formconnexion">
                     </div>
                 </form>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 <?php include('include/footer.php');
