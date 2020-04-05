@@ -1,4 +1,5 @@
-<?php session_start(); ?><!DOCTYPE html>
+<?php session_start(); ?>
+<!DOCTYPE html>
 <!--
 	24 News by FreeHTML5.co
 	Twitter: https://twitter.com/fh5co

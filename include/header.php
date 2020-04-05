@@ -1,17 +1,22 @@
 <div class="container-fluid fh5co_header_bg">
     <div class="container">
         <div class="row">
+
             <div class="col-12 fh5co_mediya_center"><a href="#" class="color_fff fh5co_mediya_setting"><i
                     class="fa fa-clock-o"></i>&nbsp;&nbsp;&nbsp;Salut </a>
                 <div class="d-inline-block fh5co_trading_posotion_relative"><a href="#" class="treding_btn">  <?php
-                             if(isset($_SESSION['id'])) {
-
-                               echo $_SESSION['id'];
-                             }
-                              ?></a>
+                  if (isset($_SESSION['id'])) {
+                    if ($_SESSION['id'] > 0) {
+                      echo $_SESSION['username'];
+                     } else {
+                       echo "visiteur";
+                     }
+                   } else {
+                     echo "visiteur";
+                   } ?></a>
                     <div class="fh5co_treding_position_absolute"></div>
                 </div>
-                <a href="#" class="color_fff fh5co_mediya_setting">Tu peux administrer ton site !</a>
+                <a href="#" class="color_fff fh5co_mediya_setting">Bienvenue sur le blog !</a>
             </div>
         </div>
     </div>
@@ -20,19 +25,30 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-3 fh5co_padding_menu">
-                <img src="images/logo.png" alt="img" class="fh5co_logo_width"/>
+              <a href="index.php">            <img src="images/logo.png" alt="img" class="fh5co_logo_width"/></a>
+
             </div>
             <div class="col-12 col-md-9 align-self-center fh5co_mediya_right">
 
+                      <?php if(isset($_SESSION['id'])) {
+                        if ($_SESSION['id'] > 0) {
+
+                       ?>
                 <div class="text-center d-inline-block">
-                    <a class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-linkedin"></i></div></a>
+                    <a class="" href="create_article.php"> Créer un article </a>
                 </div>
                 <div class="text-center d-inline-block">
-                    <a href="https://twitter.com/fh5co" target="_blank" class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-twitter"></i></div></a>
+                    <a class="" style="color: black" href="logout.php"><u>Deconnexion</u></a>
                 </div>
+              <?php   }
+            } else {
+
+                ?>
                 <div class="text-center d-inline-block">
-                    <a href="https://fb.com/fh5co" target="_blank" class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-facebook"></i></div></a>
+                    <a class="" href="sign_in.php">Connexion</a>
                 </div>
+                <?php
+              } ?>
                 <!--<div class="d-inline-block text-center"><img src="images/country.png" alt="img" class="fh5co_country_width"/></div>-->
                 <div class="clearfix"></div>
             </div>
@@ -54,20 +70,10 @@
                     <li class="nav-item ">
                         <a class="nav-link" href="blog.php">Blog <span class="sr-only">(current)</span></a>
                     </li>
-                    <?php   if (!isset($_SESSION['username'])) { ?>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="sign_in.php">Connexion (Admin) <span class="sr-only">(current)</span></a>
-                    </li>
-                  <?php } ?>
-                    <?php
-                    if (isset($_SESSION['username'])) {
 
 
-                    ?>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="sign_in.php">Deconnexion (Admin) <span class="sr-only">(current)</span></a>
-                    </li>
-                    <?php } ?>
+
+
                     <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton2" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">World <span class="sr-only">(current)</span></a>
@@ -79,7 +85,7 @@
                     </li> -->
 
                     <li class="nav-item ">
-                        <a class="nav-link" href="Contact_us.html">Contact <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="contact.php">Contact <span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
             </div>

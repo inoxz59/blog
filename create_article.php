@@ -1,6 +1,4 @@
-
-
-
+<?php session_start(); ?>
 <!DOCTYPE html>
 <!--
 	24 News by FreeHTML5.co
@@ -30,23 +28,27 @@
 <body>
 
   <?php
-  include('include/header.php');
   require_once('require/config.php');
+  include('include/header.php');
 
-    if(isset($_POST['articlec'])) {
+  if (isset($_SESSION['id'])) {
+    if ($_SESSION['id'] > 0) {
 
-      if(!empty($_POST['title']) AND !empty($_POST['img']) AND !empty($_POST['content'])) {
-      $title =  $_POST['title'];
-      $img = $_POST['img'];
-      $content =  $_POST['content'];
-      $req = $bdd->prepare("INSERT INTO articles(title,img,content,date)  VALUES(?, ?, ?, NOW())");
-      $req->execute(array($title,$img,$content));
-      echo "Votre message est bien envoyé !";
+          if(isset($_POST['articlec'])) {
 
-    } else {
-      echo "Veuillez remplir tous les champs!";
-      }
-    }
+            if(!empty($_POST['title']) AND !empty($_POST['img']) AND !empty($_POST['content'])) {
+            $title =  $_POST['title'];
+            $img = $_POST['img'];
+            $content =  $_POST['content'];
+            $req = $bdd->prepare("INSERT INTO articles(title,img,content,date)  VALUES(?, ?, ?, NOW())");
+            $req->execute(array($title,$img,$content));
+            echo "Votre message est bien envoyé !";
+
+          } else {
+            echo "Veuillez remplir tous les champs!";
+            }
+          }
+
 
   ?>
 
@@ -88,7 +90,16 @@
             </div>
           </div>
         </div>
+<?php
+} else {
+  echo "<h4 class='text-center'>Tu dois êtres connecté !</h4>";
+}
 
+  }
+  else {
+    echo "<h4 class='text-center'>Tu dois êtres connecté !</h4>";
+  }
+  ?>
 
 
 
